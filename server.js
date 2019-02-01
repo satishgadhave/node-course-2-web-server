@@ -16,12 +16,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs', {
-        title: 'Maintenance',
-        message: 'The website is under maintenance'
-    });
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs', {
+//         title: 'Maintenance',
+//         message: 'The website is under maintenance'
+//     });
+// });
 
 hbs.registerHelper('getCurrentYear', () => new Date().getFullYear());
 hbs.registerHelper('screamIt', (text) => text.toUpperCase());
@@ -36,6 +36,13 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.send({
         test: 'about'
+    });
+});
+
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio.hbs', {
+        title: 'Portfolio',
+        message: 'Satish Gadhave'
     });
 });
 
